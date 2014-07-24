@@ -5,6 +5,28 @@
 .masthead-decoration {
     float: left;
 }
+.masthead-title {
+    float: right;
+    text-align: center;
+    width: 70%;
+}
+div {
+    padding: 10px;
+}
+div.container {
+    padding: 0
+}
+.container,
+.content,
+.user-input,
+.masthead {
+    border: 1px solid;
+}
+.container,
+.user-input,
 .masthead {
     text-align: center;
+}
+.content {
+    text-align: left;
 }
