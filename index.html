@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html ng-app='' lang="en">
+<html ng-app='myApp' lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>ngMadLibs</title>
     <link rel="stylesheet" href="style.css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="myApp.js"></script>
 </head>
 
 <body>
-    <div class="container">
+    <div ng-controller="InputCtrl" class="container">
         <div class="masthead">
             <img src="mad-lib-happy-face.png" alt="MadLib Happy Face">
             <div class="masthead-title">
@@ -19,47 +20,33 @@
         </div>
         <div class="user-input">
             <h2>Provide the following words:</h2>
-            <input type="text" ng-model="title_rank" placeholder="title or rank">
-            <input type="text" ng-model="pet_name" placeholder="pet name">
-            <input type="text" ng-model="name" placeholder="name">
-            <input type="text" ng-model="place" placeholder="place">
-            <input type="text" ng-model="verb1" placeholder="verb">
-            <input type="text" ng-model="food" placeholder="food plural">
-            <input type="text" ng-model="verb2" placeholder="verb">
-            <input type="text" ng-model="verb3" placeholder="verb">
-            <input type="text" ng-model="noun1" placeholder="noun">
-            <input type="text" ng-model="noun2" placeholder="noun">
-            <input type="text" ng-model="brand1" placeholder="brand">
-            <input type="text" ng-model="animal" placeholder="animal singular possessive">
-            <input type="text" ng-model="clothing" placeholder="article of clothing">
-            <input type="text" ng-model="brand2" placeholder="brand">
-            <input type="text" ng-model="animal2" placeholder="animal singular possessive">
-            <input type="text" ng-model="body_part" placeholder="body part">
-            <input type="text" ng-model="verb4" placeholder="verb present participle">
-	    <div><input type="button" ng-click="results = !results"
-		    value="Toggle Results"></div>
+            <input type="text" ng-model="input.title_rank">
+            <input type="text" ng-model="input.pet_name">
+            <input type="text" ng-model="input.name">
+            <input type="text" ng-model="input.place">
+            <input type="text" ng-model="input.verb1">
+            <input type="text" ng-model="input.food">
+            <input type="text" ng-model="input.verb2">
+            <input type="text" ng-model="input.verb3">
+            <input type="text" ng-model="input.noun1">
+            <input type="text" ng-model="input.brand1">
+            <input type="text" ng-model="input.animal">
+            <input type="text" ng-model="input.clothing">
+            <input type="text" ng-model="input.brand2">
+            <input type="text" ng-model="input.animal2">
+            <input type="text" ng-model="input.body_part">
+            <input type="text" ng-model="input.verb4">
+            <div>
+                <input type="button" ng-click="results = !results" value="Toggle Results">
+            </div>
         </div>
         <div class="content" ng-show="results">There once was a dog named
-            <input type="text" ng-model="title_rank" placeholder="title or rank">
-            <input type="text" ng-model="pet_name" placeholder="pet name">whose human was
-            <input type="text" ng-model="name" placeholder="name">. They liked to walk in the
-            <input type="text" ng-model="place" placeholder="place">and
-            <input type="text" ng-model="verb1" placeholder="verb">
-            <input type="text" ng-model="food" placeholder="food plural">. They would
-            <input type="text" ng-model="verb2" placeholder="verb">
-            <input type="text" ng-model="food" placeholder="food plural">and
-            <input type="text" ng-model="verb3" placeholder="verb">on the sidewalk. They usually agreed upon these activities... However, they did not agree upon which
-            <input type="text" ng-model="noun2" placeholder="noun">was best.
-            <input type="text" ng-model="pet_name" placeholder="pet name">thought
-            <input type="text" ng-model="brand1" placeholder="brand">was the
-            <input type="text" ng-model="animal" placeholder="animal singular
-	    possessive">
-            <input type="text" ng-model="clothing" placeholder="article of clothing">and
-            <input type="text" ng-model="name" placeholder="name">thought
-            <input type="text" ng-model="brand2" placeholder="brand">was the
-            <input type="text" ng-model="animal2" placeholder="animal singular possessive">
-            <input type="text" ng-model="body_part" placeholder="body_part">. They decided it wasn't worth
-            <input type="text" ng-model="verb4" placeholder="verb present participle">over and lived happily ever after.</div>
+		{{input.title_rank}} {{input.pet_name}} whose human was {{input.name}}. They liked to walk in the {{input.place}} and {{input.verb1}} {{input.food}}. They would {{input.verb2}} {{input.food}} and {{input.verb3}} on the sidewalk. They usually agreed upon these activities...
+            However, they did not agree upon which {{input.noun1}} was best.
+	    {{input.pet_name}} thought {{input.brand1}} was the {{input.animal}}
+	    {{input.clothing}} and {{input.name}} thought {{input.brand2}} was
+	    the {{input.animal2}} {{input.body_part}}. They decided it wasn't worth {{input.verb4}} over and lived
+            happily ever after.</div>
     </div>
 </body>
 
