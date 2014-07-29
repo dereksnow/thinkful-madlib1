@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div ng-controller="InputCtrl" class="container">
+    <div class="container" ng-controller="FormCtrl">
         <div class="masthead">
             <img src="mad-lib-happy-face.png" alt="MadLib Happy Face">
             <div class="masthead-title">
@@ -18,35 +18,37 @@
                 <h1>Automate This!</h1>
             </div>
         </div>
-        <div class="user-input">
+        <form ng-hide="inputFrm" class="user-input" ng-submit="submitted=true; submit()" name="myForm" novalidate>
             <h2>Provide the following words:</h2>
-            <input type="text" ng-model="input.title_rank">
-            <input type="text" ng-model="input.pet_name">
-            <input type="text" ng-model="input.name">
-            <input type="text" ng-model="input.place">
-            <input type="text" ng-model="input.verb1">
-            <input type="text" ng-model="input.food">
-            <input type="text" ng-model="input.verb2">
-            <input type="text" ng-model="input.verb3">
-            <input type="text" ng-model="input.noun1">
-            <input type="text" ng-model="input.brand1">
-            <input type="text" ng-model="input.animal">
-            <input type="text" ng-model="input.clothing">
-            <input type="text" ng-model="input.brand2">
-            <input type="text" ng-model="input.animal2">
-            <input type="text" ng-model="input.body_part">
-            <input type="text" ng-model="input.verb4">
+	    <input type="text" name="petName" placeholder="Pet's name" ng-class="{'required-error' : myForm.petName.$invalid && submitted}" ng-model="data.petName" required>
+            <input name="personName" placeholder="name" ng-class="{'required-error' : myForm.personName.$invalid && submitted}" type="text" ng-model="data.name" required>
+            <input name="place" placeholder="place" ng-class="{'required-error' : myForm.place.$invalid && submitted}"type="text" ng-model="data.place" required>
+            <input name="verb1" placeholder="verb" ng-class="{'required-error' : myForm.verb1.$invalid && submitted}"type="text" ng-model="data.verb1" required>
+            <input name="hugeNumber" placeholder="Huge Number" ng-class="{'number-error' : myForm.hugeNumber.$invalid && submitted}"type="number"  ng-model="data.hugeNumber" required>
+            <input name="food" placeholder="food" ng-class="{'required-error' : myForm.food.$invalid && submitted}"type="text" ng-model="data.food" required>
+            <input name="verb2" placeholder="verb" ng-class="{'required-error' : myForm.verb2.$invalid && submitted}"type="text" ng-model="data.verb2" required>
+            <input name="verb3" placeholder="verb" ng-class="{'required-error' : myForm.verb3.$invalid && submitted}"type="text" ng-model="data.verb3" required>
+            <input name="noun1" placeholder="noun" ng-class="{'required-error' : myForm.noun1.$invalid && submitted}"type="text" ng-model="data.noun1" required>
+            <input name="brand1" placeholder="brand" ng-class="{'required-error' : myForm.brand1.$invalid && submitted}"type="text" ng-model="data.brand1" required>
+            <input name="animal" placeholder="animal" ng-class="{'required-error' : myForm.animal.$invalid && submitted}"type="text" ng-model="data.animal" required>
+            <input name="clothing" placeholder="clothing" ng-class="{'required-error' : myForm.clothing.$invalid && submitted}"type="text" ng-model="data.clothing" required>
+            <input name="brand2" placeholder="brand" ng-class="{'required-error' : myForm.brand2.$invalid && submitted}"type="text" ng-model="data.brand2" required>
+            <input name="animal2" placeholder="animal" ng-class="{'required-error' : myForm.animal2.$invalid && submitted}"type="text" ng-model="data.animal2" required>
+            <input name="bodyPart" placeholder="body part" ng-class="{'required-error' : myForm.bodyPart.$invalid && submitted}"type="text" ng-model="data.bodyPart" required>
+            <input name="verb4" placeholder="verb" ng-class="{'required-error' : myForm.verb4.$invalid && submitted}"type="text" ng-model="data.verb4" required>
+            <p ng-if="submitted && myForm.hugeNumber.$error.required" class="number-error">You must enter a valid number.</p>
+            <p ng-if="submitted && myForm.$error.required" class="required-error">All fields require input.</p>
             <div>
-                <input type="button" ng-click="results = !results" value="Toggle Results">
+                <input type="submit"  value="submit">
+            </div>
+        </form>
+        <div class="content" ng-show="results">There once was a dog named {{data.titleRank}} {{data.petName}} whose human was {{data.name}}. They liked to walk in the {{data.place}} and {{data.verb1}} {{data.hugeNumber}} {{data.food}}. They would {{data.verb2}} {{data.food}} and {{data.verb3}}
+            on the sidewalk. They usually agreed upon these activities... However, they did not agree upon which {{data.noun1}} was best. {{data.petName}} thought {{data.brand1}} was the {{data.animal}} {{data.clothing}} and {{data.name}} thought {{data.brand2}}
+            was the {{data.animal2}} {{data.bodyPart}}. They decided it wasn't worth {{data.verb4}} over and lived happily ever after.
+            <div>
+                <input type="BUTTON" ng-click="reset()" value="reset">
             </div>
         </div>
-        <div class="content" ng-show="results">There once was a dog named
-		{{input.title_rank}} {{input.pet_name}} whose human was {{input.name}}. They liked to walk in the {{input.place}} and {{input.verb1}} {{input.food}}. They would {{input.verb2}} {{input.food}} and {{input.verb3}} on the sidewalk. They usually agreed upon these activities...
-            However, they did not agree upon which {{input.noun1}} was best.
-	    {{input.pet_name}} thought {{input.brand1}} was the {{input.animal}}
-	    {{input.clothing}} and {{input.name}} thought {{input.brand2}} was
-	    the {{input.animal2}} {{input.body_part}}. They decided it wasn't worth {{input.verb4}} over and lived
-            happily ever after.</div>
     </div>
 </body>
 

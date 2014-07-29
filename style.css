@@ -30,3 +30,15 @@ div.container {
 .content {
     text-align: left;
 }
+input[type="number"].number-error {
+    border: 2px solid #8B0000;
+}
+.number-error {
+    color: #8B0000;
+}
+input[type="text"].required-error {
+    border: 2px solid #FF2400;
+}
+.required-error {
+    color: #FF2400;
+}
